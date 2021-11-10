@@ -1,0 +1,66 @@
+schema: '2.0'
+stages:
+  prepare_data:
+    cmd: python src/stage1.py --config=configs/config.yaml --params=params.yaml
+    deps:
+    - path: configs/config.yaml
+      md5: 7f54e5e626dbbe3451e4111a29cde17e
+      size: 315
+    - path: data/data.xml
+      md5: a304afb96060aad90176268345e10355
+      size: 37891850
+    - path: src/stage1.py
+      md5: abe6c4ffdef05a60617a287ed9970399
+      size: 2084
+    - path: src/utils/common.py
+      md5: 0955e0d519f2beca91100ce589c4f8f8
+      size: 804
+    - path: src/utils/data_mgmt.py
+      md5: b5e511245bf57663853ddd4d4ca5efb5
+      size: 839
+    params:
+      params.yaml:
+        prepare.seed: 2021
+        prepare.split: 0.2
+    outs:
+    - path: artifacts/prepared/test.tsv
+      md5: 809fb4e0ee72a181b7ec6c470b5299dc
+      size: 4799581
+    - path: artifacts/prepared/train.tsv
+      md5: 7bfc8c50f6e31446f627cbc5f62520fc
+      size: 18595369
+  featurize:
+    cmd: python src/stage2.py --config=configs/config.yaml --params=params.yaml
+    deps:
+    - path: artifacts/prepared/test.tsv
+      md5: 809fb4e0ee72a181b7ec6c470b5299dc
+      size: 4799581
+    - path: artifacts/prepared/train.tsv
+      md5: 7bfc8c50f6e31446f627cbc5f62520fc
+      size: 18595369
+    - path: configs/config.yaml
+      md5: 7f54e5e626dbbe3451e4111a29cde17e
+      size: 315
+    - path: src/stage2.py
+      md5: 6df883bd99b059edfa05722bb0940f1a
+      size: 3099
+    - path: src/utils/common.py
+      md5: 0955e0d519f2beca91100ce589c4f8f8
+      size: 804
+    - path: src/utils/data_mgmt.py
+      md5: b5e511245bf57663853ddd4d4ca5efb5
+      size: 839
+    - path: src/utils/featurize.py
+      md5: 772393806059194ef72d13dc5706a3ac
+      size: 511
+    params:
+      params.yaml:
+        featurize.max_params: 3000
+        featurize.ngrams: 2
+    outs:
+    - path: artifacts/features/test.pkl
+      md5: 4ca93f32b16bdb1a3aef52479cad6479
+      size: 2569577
+    - path: artifacts/features/train.pkl
+      md5: 3a925c8d9993105e31460948715a7fa6
+      size: 10022301

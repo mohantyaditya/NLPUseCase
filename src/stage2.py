@@ -60,6 +60,14 @@ def main(config_path,params_path):
 
     save_matrix(df_train,train_words_tfidf_matrix,featurized_train_data_path)
 
+    df_test = get_df(test_data_path)
+    test_words = np.array(df_test.text.str.lower().values.astype("U"))
+    test_words_binary_matrix = bag_of_words.transform(test_words)
+
+    test_words_tfidf_matrix = tfidf.transform(test_words_binary_matrix)
+
+    save_matrix(df_test,test_words_tfidf_matrix,featurized_test_data_path)
+
 
     #print(train_words[:20])
 
@@ -74,13 +82,13 @@ def main(config_path,params_path):
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
     args.add_argument("--config", "-c", default="configs/config.yaml")
-    args.add_argument("--param", "-p", default="params.yaml")
+    args.add_argument("--params", "-p", default="params.yaml")
     parsed_args = args.parse_args()
 
     try:
         logging.info("\n********************")
         logging.info(f">>>>> stage {STAGE} started <<<<<")
-        main(config_path=parsed_args.config,params_path=parsed_args.param)
+        main(config_path=parsed_args.config,params_path=parsed_args.params)
         logging.info(">>>>> stage two completed! all the data are saved in local <<<<<n")
     except Exception as e:
         logging.exception(e)
