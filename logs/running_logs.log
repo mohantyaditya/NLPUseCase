@@ -1,0 +1,12 @@
+[2021-11-09 22:17:30,602: INFO: stage1]: 
+********************
+[2021-11-09 22:17:30,602: INFO: stage1]: >>>>> stage {STAGE} started <<<<<
+[2021-11-09 22:17:30,604: INFO: common]: Yaml file configs/config.yaml created successfully
+[2021-11-09 22:17:30,604: INFO: common]: Yaml file params.yaml created successfully
+[2021-11-09 22:17:30,604: INFO: stage1]: >>>>> stage one completed! all the data are saved in local <<<<<n
+[2021-11-09 22:18:09,097: INFO: stage1]: 
+********************
+[2021-11-09 22:18:09,097: INFO: stage1]: >>>>> stage One started <<<<<
+[2021-11-09 22:18:09,098: INFO: common]: Yaml file configs/config.yaml created successfully
+[2021-11-09 22:18:09,099: INFO: common]: Yaml file params.yaml created successfully
+[2021-11-09 22:18:09,099: INFO: stage1]: >>>>> stage one completed! all the data are saved in local <<<<<n
