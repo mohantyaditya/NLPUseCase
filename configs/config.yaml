@@ -1,7 +1,8 @@
 # It contains all the configs required in the project
 
 artifacts:
-  ARTIFACTS_DIR: artifacts
+  ARTIFACT_DIR: artifacts
+  PREPARED_DATA: prepared
   TRAIN_DATA: train.tsv
   TEST_DATA: test.tsv
   
