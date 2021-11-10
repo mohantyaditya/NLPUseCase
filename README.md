@@ -31,4 +31,4 @@ pip install -r requirements.txt
 dvc init
 ```
 
-### STEP 06- commit and push the changes to the remote repository
+### STEP 06- commit and push the changes to the remote repositoryNLP USE CASE
